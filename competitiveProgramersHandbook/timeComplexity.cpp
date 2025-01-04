@@ -41,3 +41,12 @@ void printPhases(const vector<int> &list) {
     cout << list[i] << "\n";
   }
 }
+
+// Time complexity: O(n * m)
+void severalVariables(int n, int m) {
+  for (int i = 1; i <= n; i++) {
+    for (int j = 1; j <= m; j++) {
+      cout << "(" << i << ", " << j << ")\n";
+    }
+  }
+}
