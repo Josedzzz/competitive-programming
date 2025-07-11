@@ -1,0 +1,7 @@
+# Editor and system files
+.DS_Store
+.AppleDouble
+.LSOverride
+.idea/
+.vscode/
+*.code-workspace
