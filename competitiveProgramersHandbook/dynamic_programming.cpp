@@ -66,9 +66,33 @@ int solve_tabulation(int x) {
   return dp[x];
 }
 
+// Also, we can solve with DP the problem of counting the total ways
+// Tabulation (Counting ways)
+int count_ways_tab(int amount) {
+  vector<int> count(amount + 1, 0);
+  count[0] = 1; // Base case: 1 way to make amount 0
+
+  for (int x = 1; x <= amount; x++) {
+    for (int coin : coins) {
+      if (x - coin >= 0) {
+        count[x] += count[x - coin];
+      }
+    }
+  }
+  return count[amount];
+}
+
 // ========== MAIN ==========
 int main() {
   coins = {1, 3, 4};
+  int amount = 5;
+
+  cout << "Coins: {1, 3, 4}" << endl;
+  cout << "Amount: " << amount << endl;
+
+  // Tabulation
+  int ways_tab = count_ways_tab(amount);
+  cout << "\nTabulation: " << ways_tab << " ways to make " << amount << endl;
 
   cout << "Coins: {1, 3, 4}" << endl;
   cout << "Amount\tRecursive\tMemoization\tTabulation" << endl;
